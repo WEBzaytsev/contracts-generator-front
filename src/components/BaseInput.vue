@@ -1,11 +1,11 @@
 <template>
     <div class="relative">
-        <label :for="id" class="text-sm mb-1 block" v-if="label">{{
+        <label :for="uuid" class="text-sm mb-1 block" v-if="label">{{
             label
         }}</label>
         <input
             class="w-full p-4 bg-white/80 block rounded-lg shadow-xl focus:shadow-md transition-all duration-300 text-black"
-            :id="id"
+            :id="uuid"
             v-bind="$attrs"
             :placeholder="label"
             :modelValue="modelValue"
@@ -25,11 +25,6 @@ import { UniqueID } from '@/utils/UniqueID';
 
 export default {
     name: 'BaseInput',
-    data() {
-        return {
-            id: UniqueID(),
-        };
-    },
     props: {
         label: {
             type: String,
@@ -43,6 +38,13 @@ export default {
             type: [String, Number],
             default: '',
         },
+    },
+    setup() {
+        const uuid = UniqueID();
+
+        return {
+            uuid,
+        };
     },
 };
 </script>
