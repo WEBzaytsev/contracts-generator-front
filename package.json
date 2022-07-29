@@ -10,7 +10,9 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "lodash": "^4.17.21",
-    "vue": "^3.2.13"
+    "vee-validate": "^4.5.8",
+    "vue": "^3.2.13",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
