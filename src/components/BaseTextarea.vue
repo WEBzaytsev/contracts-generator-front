@@ -1,14 +1,14 @@
 <template>
     <div class="relative">
         <BaseLabel :label="label" :id="uuid" />
-        <input
-            class="w-full border border-solid border-black/10 p-4 bg-white/80 text-sm block rounded-lg shadow-inner focus:shadow-md transition-all duration-300 text-black"
+        <textarea
+            class="w-full border border-solid border-black/10 p-4 bg-white/80 block rounded-lg shadow-inner focus:shadow-md transition-all duration-300 text-black"
             :id="uuid"
             v-bind="$attrs"
             :placeholder="label"
             :modelValue="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
-        />
+        ></textarea>
         <BaseError :error="error" />
     </div>
 </template>
@@ -17,7 +17,7 @@
 import { UniqueID } from '@/utils/UniqueID';
 
 export default {
-    name: 'BaseInput',
+    name: 'BaseTextarea',
     props: {
         label: {
             type: String,
@@ -28,7 +28,7 @@ export default {
             default: '',
         },
         modelValue: {
-            type: [String, Number],
+            type: String,
             default: '',
         },
     },
