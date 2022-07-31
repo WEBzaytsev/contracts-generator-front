@@ -14,7 +14,6 @@
                             type="text"
                             label="Номер договора"
                             v-model="contractNumber"
-                            :error="errors.contractNumber"
                         />
                         <BaseInput
                             type="text"
@@ -265,6 +264,96 @@
                     </div>
                 </div>
 
+                <div class="mt-24">
+                    <fieldset>
+                        <BaseFieldsetLegend text="Пункты договора" />
+                        <div
+                            class="my-8 shadow-inner rounded border border-solid border-black/10"
+                        >
+                            <div
+                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
+                            >
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
+                                >
+                                    Предмет Договора
+                                </p>
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
+                                >
+                                    Максимаьная стоимость работы/услуги без
+                                    подписания заказа
+                                </p>
+                                <div class="py-6 flex justify-around">
+                                    <BaseInput
+                                        type="text"
+                                        width-class="w-2/5"
+                                        label="Макс. стоимость (р)"
+                                        v-model="contractMinPrice"
+                                        :error="errors.contractMinPrice"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
+                            >
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
+                                >
+                                    Финансовые условия
+                                </p>
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
+                                >
+                                    Стоимость работы/услуги в связи с
+                                    применением Исполнителем упрощённой схемы
+                                    налогообложения
+                                </p>
+                                <div class="py-6 flex justify-around">
+                                    <BaseInput
+                                        type="text"
+                                        width-class="w-2/5"
+                                        label="Облагается НДС?"
+                                        v-model="contractNDS"
+                                        :error="errors.contractNDS"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
+                            >
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
+                                >
+                                    Обстоятельства непреодолимой силы
+                                </p>
+                                <p
+                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
+                                >
+                                    Сторона имеет право отложить исполнение
+                                    обязательств не более
+                                </p>
+                                <div class="py-6 flex justify-around">
+                                    <BaseInput
+                                        type="text"
+                                        label="Срок (числом)"
+                                        width-class="w-2/5"
+                                        v-model="contractTermNumber"
+                                        :error="errors.contractTermNumber"
+                                    />
+                                    <BaseInput
+                                        type="text"
+                                        width-class="w-2/5"
+                                        label="Срок (словами)"
+                                        v-model="contractTermString"
+                                        :error="errors.contractTermString"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
                 <BaseButton text="Отправить" />
             </form>
         </div>
@@ -315,6 +404,11 @@ export default {
             executorBIC: yup.number().required(),
             executorCheckingAccount: yup.number().required(),
             executorCorespondentAccount: yup.number().required(),
+
+            contractMinPrice: yup.string().required(),
+            contractNDS: yup.string().required(),
+            contractTermNumber: yup.number().required(),
+            contractTermString: yup.string().required(),
         });
 
         const { handleSubmit, errors } = useForm({
@@ -371,6 +465,11 @@ export default {
             'executorCorespondentAccount'
         );
 
+        const { value: contractMinPrice } = useField('contractMinPrice');
+        const { value: contractNDS } = useField('contractNDS');
+        const { value: contractTermNumber } = useField('contractTermNumber');
+        const { value: contractTermString } = useField('contractTermString');
+
         return {
             submit,
             contractNumber,
@@ -409,6 +508,11 @@ export default {
             executorBIC,
             executorCheckingAccount,
             executorCorespondentAccount,
+
+            contractMinPrice,
+            contractNDS,
+            contractTermNumber,
+            contractTermString,
         };
     },
 };

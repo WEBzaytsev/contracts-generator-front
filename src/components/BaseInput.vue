@@ -1,5 +1,5 @@
 <template>
-    <div class="relative">
+    <div class="relative" :class="widthClass">
         <BaseLabel :label="label" :id="uuid" />
         <input
             class="w-full border border-solid border-black/10 p-4 bg-white/80 text-sm block rounded-lg shadow-inner focus:shadow-md transition-all duration-300 text-black"
@@ -30,6 +30,10 @@ export default {
         modelValue: {
             type: [String, Number],
             default: '',
+        },
+        widthClass: {
+            type: String,
+            default: 'w-full',
         },
     },
     setup() {
