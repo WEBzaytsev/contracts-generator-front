@@ -1,0 +1,395 @@
+[
+  {
+    "area":"main",
+    "component": "Input",
+    "name": "contractNumber",
+    "type": "text",
+    "label": "Номер договора",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "main",
+    "component": "Input",
+    "name": "contractDate",
+    "type": "text",
+    "label": "Дата",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "main",
+    "component": "Input",
+    "name": "contractCity",
+    "type": "text",
+    "label": "Город",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "executorSecondName",
+    "type": "text",
+    "label": "Фамилия",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "executorFirstName",
+    "type": "text",
+    "label": "Имя",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "executorLastName",
+    "type": "text",
+    "label": "Отчество",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "contact-info",
+    "component": "Input",
+    "name": "executorEmail",
+    "type": "text",
+    "label": "Email",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "contact-info",
+    "component": "Input",
+    "name": "executorPhone",
+    "type": "text",
+    "label": "Телефон",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "business-info",
+    "component": "Input",
+    "name": "executorCompany",
+    "type": "text",
+    "label": "Наименование организации",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "business-info",
+    "component": "Input",
+    "name": "executorPosition",
+    "type": "text",
+    "label": "Должность",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "legal-info",
+    "component": "Textarea",
+    "name": "executorLegalAddress",
+    "type": "text",
+    "label": "Юридический адрес",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank",
+    "component": "Input",
+    "name": "executorDocument",
+    "type": "text",
+    "label": "Документ(устав)",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank",
+    "component": "Input",
+    "name": "executorBankName",
+    "type": "text",
+    "label": "Банк",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "executorINN",
+    "type": "text",
+    "label": "ИНН",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "executorKPP",
+    "type": "text",
+    "label": "КПП",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "executorBIC",
+    "type": "text",
+    "label": "БИК",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank-account",
+    "component": "Input",
+    "name": "executorCheckingAccount",
+    "type": "text",
+    "label": "Расчётный счёт",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "executor",
+    "subarea": "bank-account",
+    "component": "Input",
+    "name": "executorCorespondentAccount",
+    "type": "text",
+    "label": "Корреспондентский счёт",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "clientSecondName",
+    "type": "text",
+    "label": "Фамилия",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "clientFirstName",
+    "type": "text",
+    "label": "Имя",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "fio",
+    "component": "Input",
+    "name": "clientLastName",
+    "type": "text",
+    "label": "Отчество",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "contact-info",
+    "component": "Input",
+    "name": "clientEmail",
+    "type": "text",
+    "label": "Email",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "contact-info",
+    "component": "Input",
+    "name": "clientPhone",
+    "type": "text",
+    "label": "Телефон",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "business-info",
+    "component": "Input",
+    "name": "clientCompany",
+    "type": "text",
+    "label": "Наименование организации",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "business-info",
+    "component": "Input",
+    "name": "clientPosition",
+    "type": "text",
+    "label": "Должность",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "legal-info",
+    "component": "Textarea",
+    "name": "clientLegalAddress",
+    "type": "text",
+    "label": "Юридический адрес",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank",
+    "component": "Input",
+    "name": "clientDocument",
+    "type": "text",
+    "label": "Документ(устав)",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank",
+    "component": "Input",
+    "name": "clientBankName",
+    "type": "text",
+    "label": "Банк",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "clientINN",
+    "type": "text",
+    "label": "ИНН",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "clientKPP",
+    "type": "text",
+    "label": "КПП",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank-info",
+    "component": "Input",
+    "name": "clientBIC",
+    "type": "text",
+    "label": "БИК",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank-account",
+    "component": "Input",
+    "name": "clientCheckingAccount",
+    "type": "text",
+    "label": "Расчётный счёт",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "client",
+    "subarea": "bank-account",
+    "component": "Input",
+    "name": "clientCorespondentAccount",
+    "type": "text",
+    "label": "Корреспондентский счёт",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  }
+]
