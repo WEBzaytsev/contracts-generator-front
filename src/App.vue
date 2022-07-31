@@ -3,9 +3,8 @@
         <div
             class="container mx-auto bg-white/50 rounded-xl shadow-lg px-4 py-12"
         >
-            <form @submit.prevent="submit">
-                <fieldset>
-                    <BaseFieldsetLegend text="Основные данные" />
+            <form @submit="submit">
+                <form-fields-group title="Основные данные">
                     <div
                         class="max-w-[800px] grid grid-cols-4 gap-x-7.5 w-fit mx-auto"
                     >
@@ -20,65 +19,60 @@
                             :error="errors[field.name]"
                         />
                     </div>
-                </fieldset>
-
+                </form-fields-group>
                 <div class="grid grid-cols-2 gap-10 mt-24">
-                    <div
+                    <form-fields-group
                         class="shadow-inner p-4 rounded border border-solid border-black/10"
+                        title="Исполнитель"
                     >
-                        <fieldset>
-                            <BaseFieldsetLegend text="Исполнитель" />
-                            <div
-                                class="mb-6 last:mt-0"
-                                :class="
-                                    subfields.length >= 2
-                                        ? 'grid grid-cols-2 gap-x-5 gap-y-2.5'
-                                        : ''
-                                "
-                                v-for="(subfields, idx) in executorFields"
-                                :key="idx"
-                            >
-                                <component
-                                    :is="`Base${field.component}`"
-                                    v-for="field of subfields"
-                                    :key="field.name"
-                                    :name="field.name"
-                                    :type="field.type"
-                                    :label="field.label"
-                                    v-model="$root[field.name]"
-                                    :error="errors[field.name]"
-                                />
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div
+                        <div
+                            class="mb-6 last:mt-0"
+                            :class="{
+                                'grid grid-cols-2 gap-x-5 gap-y-2.5':
+                                    subfields.length >= 2,
+                            }"
+                            v-for="(subfields, idx) in executorFields"
+                            :key="idx"
+                        >
+                            <component
+                                :is="`Base${field.component}`"
+                                v-for="field of subfields"
+                                :key="field.name"
+                                :name="field.name"
+                                :type="field.type"
+                                :label="field.label"
+                                v-model="$root[field.name]"
+                                :error="errors[field.name]"
+                            />
+                        </div>
+                    </form-fields-group>
+
+                    <form-fields-group
                         class="shadow-inner p-4 rounded border border-solid border-black/10"
+                        title="Заказчик"
                     >
-                        <fieldset>
-                            <BaseFieldsetLegend text="Заказчик" />
-                            <div
-                                class="mb-6 last:mt-0"
-                                :class="
-                                    subfields.length >= 2
-                                        ? 'grid grid-cols-2 gap-x-5 gap-y-2.5'
-                                        : ''
-                                "
-                                v-for="(subfields, idx) in clientFields"
-                                :key="idx"
-                            >
-                                <component
-                                    :is="`Base${field.component}`"
-                                    v-for="field of subfields"
-                                    :key="field.name"
-                                    :name="field.name"
-                                    :type="field.type"
-                                    :label="field.label"
-                                    v-model="$root[field.name]"
-                                    :error="errors[field.name]"
-                                />
-                            </div>
-                        </fieldset>
-                    </div>
+                        <div
+                            class="mb-6 last:mt-0"
+                            :class="
+                                subfields.length >= 2
+                                    ? 'grid grid-cols-2 gap-x-5 gap-y-2.5'
+                                    : ''
+                            "
+                            v-for="(subfields, idx) in clientFields"
+                            :key="idx"
+                        >
+                            <component
+                                :is="`Base${field.component}`"
+                                v-for="field of subfields"
+                                :key="field.name"
+                                :name="field.name"
+                                :type="field.type"
+                                :label="field.label"
+                                v-model="$root[field.name]"
+                                :error="errors[field.name]"
+                            />
+                        </div>
+                    </form-fields-group>
                 </div>
 
                 <div class="mt-24">
@@ -181,9 +175,11 @@
 import { createDocument } from '@/api/api';
 import * as yup from 'yup';
 import { useField, useForm } from 'vee-validate';
+import FormFieldsGroup from '@/components/FormFieldsGroup';
 
 export default {
     name: 'App',
+    components: { FormFieldsGroup },
     computed: {
         mainFields() {
             return this.getFieldsByArea('main');
