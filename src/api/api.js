@@ -3,9 +3,7 @@ const url = 'http://contract-generator/word.php';
 export const createDocument = async (data) => {
     const formData = new FormData();
 
-    for (let [key, value] of Object.entries(data)) {
-        formData.append(key, value);
-    }
+    formData.append('contract', JSON.stringify(data));
 
     try {
         const request = await fetch(url, {
