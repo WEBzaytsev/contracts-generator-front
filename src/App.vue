@@ -75,96 +75,6 @@
                     </form-fields-group>
                 </div>
 
-                <div class="mt-24">
-                    <fieldset>
-                        <BaseFieldsetLegend text="Пункты договора" />
-                        <div
-                            class="my-8 shadow-inner rounded border border-solid border-black/10"
-                        >
-                            <div
-                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
-                            >
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
-                                >
-                                    Предмет Договора
-                                </p>
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
-                                >
-                                    Максимаьная стоимость работы/услуги без
-                                    подписания заказа
-                                </p>
-                                <div class="py-6 flex justify-around">
-                                    <BaseInput
-                                        type="text"
-                                        width-class="w-2/5"
-                                        label="Макс. стоимость (р)"
-                                        v-model="contractMinPrice"
-                                        :error="errors.contractMinPrice"
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
-                            >
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
-                                >
-                                    Финансовые условия
-                                </p>
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
-                                >
-                                    Стоимость работы/услуги в связи с
-                                    применением Исполнителем упрощённой схемы
-                                    налогообложения
-                                </p>
-                                <div class="py-6 flex justify-around">
-                                    <BaseInput
-                                        type="text"
-                                        width-class="w-2/5"
-                                        label="Облагается НДС?"
-                                        v-model="contractNDS"
-                                        :error="errors.contractNDS"
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                class="grid items-stretch grid-cols-[230px_400px_minmax(0,_1fr)] border-b border-solid border-black/10 last:border-none"
-                            >
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center justify-center text-center"
-                                >
-                                    Обстоятельства непреодолимой силы
-                                </p>
-                                <p
-                                    class="border-r border-solid border-black/10 py-6 px-3 flex items-center"
-                                >
-                                    Сторона имеет право отложить исполнение
-                                    обязательств не более
-                                </p>
-                                <div class="py-6 flex justify-around">
-                                    <BaseInput
-                                        type="text"
-                                        label="Срок (числом)"
-                                        width-class="w-2/5"
-                                        v-model="contractTermNumber"
-                                        :error="errors.contractTermNumber"
-                                    />
-                                    <BaseInput
-                                        type="text"
-                                        width-class="w-2/5"
-                                        label="Срок (словами)"
-                                        v-model="contractTermString"
-                                        :error="errors.contractTermString"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-
                 <BaseButton text="Отправить" />
             </form>
         </div>
@@ -219,11 +129,15 @@ export default {
 
         for (let field of formFields) {
             if (field.validations.type === 'string') {
-                validations[field.name] = yup.string().required();
+                validations[field.name] = yup
+                    .string()
+                    .required(`Заполните ${field.label}`);
             }
 
             if (field.validations.type === 'number') {
-                validations[field.name] = yup.number().required();
+                validations[field.name] = yup
+                    .number()
+                    .required(`Заполните ${field.label}`);
             }
         }
 
