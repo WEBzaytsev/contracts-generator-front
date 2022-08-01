@@ -12,7 +12,7 @@
   },
   {
     "area": "main",
-    "component": "Input",
+    "component": "DateInput",
     "name": "contractDate",
     "type": "text",
     "label": "Дата",

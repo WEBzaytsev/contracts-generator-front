@@ -129,15 +129,13 @@ export default {
 
         for (let field of formFields) {
             if (field.validations.type === 'string') {
-                validations[field.name] = yup
-                    .string()
-                    .required(`Заполните ${field.label}`);
+                validations[field.name] = yup.string();
+                /*.required(`Заполните ${field.label}`)*/
             }
 
             if (field.validations.type === 'number') {
-                validations[field.name] = yup
-                    .number()
-                    .required(`Заполните ${field.label}`);
+                validations[field.name] = yup.number();
+                /*.required(`Заполните ${field.label}`)*/
             }
         }
 
