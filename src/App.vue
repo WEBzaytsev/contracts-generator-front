@@ -55,11 +55,10 @@
                     >
                         <div
                             class="mb-6 last:mt-0"
-                            :class="
-                                subfields.length >= 2
-                                    ? 'grid grid-cols-2 gap-x-5 gap-y-2.5'
-                                    : ''
-                            "
+                            :class="{
+                                'grid grid-cols-2 gap-x-5 gap-y-2.5':
+                                    subfields.length >= 2,
+                            }"
                             v-for="(subfields, idx) in clientFields"
                             :key="idx"
                         >
