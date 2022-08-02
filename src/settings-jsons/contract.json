@@ -1,6 +1,6 @@
 [
   {
-    "area":"main",
+    "area": "main",
     "component": "Input",
     "name": "contractNumber",
     "type": "text",
@@ -391,6 +391,228 @@
     "validations": {
       "required": true,
       "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "min-sum",
+    "component": "Input",
+    "name": "contractMinPriceNumber",
+    "type": "text",
+    "label": "Стоимость",
+    "placeholder": "Число",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "min-sum",
+    "component": "Input",
+    "name": "contractMinPriceString",
+    "type": "text",
+    "label": "Стоимость",
+    "placeholder": "Прописью",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "finance-req",
+    "component": "Textarea",
+    "name": "contractNDS",
+    "type": "text",
+    "label": "Условия НДС",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "dailyDelayFineNumber",
+    "type": "text",
+    "label": "Пеня за день просрочки",
+    "placeholder": "%",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "dailyDelayFineString",
+    "type": "text",
+    "label": "Пеня за день просрочки",
+    "placeholder": "Прописью",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "maxDelayFineNumber",
+    "type": "text",
+    "label": "Максимальная пеня",
+    "placeholder": "%",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "maxDelayFineString",
+    "type": "text",
+    "label": "Максимальная пеня",
+    "placeholder": "Прописью",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "deadlineDelayFineNumber",
+    "type": "text",
+    "label": "Срок выплаты пени (дней)",
+    "placeholder": "Числом",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "delay-fine",
+    "component": "Input",
+    "name": "deadlineDelayFineString",
+    "type": "text",
+    "label": "Срок выплаты пени (дней)",
+    "placeholder": "Прописью",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "force-majeure",
+    "component": "Input",
+    "name": "forceMajeureDelayNumber",
+    "type": "text",
+    "placeholder": "Число",
+    "label": "На сколько дней возможно отложить исполнение",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "force-majeure",
+    "component": "Input",
+    "name": "forceMajeureDelayString",
+    "type": "text",
+    "placeholder": "Прописью",
+    "label": "На сколько дней возможно отложить исполнение",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "force-majeure",
+    "component": "Input",
+    "name": "forceMajeureNotifyNumber",
+    "type": "text",
+    "placeholder": "Число",
+    "label": "Сообщить не позднее (дней)",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "force-majeure",
+    "component": "Input",
+    "name": "forceMajeureNotifyString",
+    "type": "text",
+    "placeholder": "Прописью",
+    "label": "Сообщить не позднее (дней)",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+
+  {
+    "area": "contract-items",
+    "subarea": "disputes",
+    "component": "Input",
+    "name": "disputesTermNumber",
+    "type": "text",
+    "placeholder": "Число",
+    "label": "Ответ на претензию предоставляется в срок (дней)",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "disputes",
+    "component": "Input",
+    "name": "disputesTermString",
+    "type": "text",
+    "placeholder": "Прописью",
+    "label": "Ответ на претензию предоставляется в срок (дней)",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+
+  {
+    "area": "contract-items",
+    "subarea": "unilateral-termination",
+    "component": "Input",
+    "name": "unilateralTerminationNumber",
+    "type": "text",
+    "placeholder": "Число",
+    "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "contract-items",
+    "subarea": "unilateral-termination",
+    "component": "Input",
+    "name": "unilateralTerminationString",
+    "type": "text",
+    "placeholder": "Прописью",
+    "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
+    "validations": {
+      "required": true,
+      "type": "string"
     }
   }
 ]

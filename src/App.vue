@@ -77,6 +77,29 @@
                         </div>
                     </form-fields-group>
                 </div>
+                <form-fields-group title="Пункты договора" class="mt-24">
+                    <div
+                        class="mb-6 last:mt-0"
+                        :class="{
+                            'grid grid-cols-4 gap-x-5 items-end gap-y-2.5':
+                                subfields.length >= 2,
+                        }"
+                        v-for="(subfields, idx) in contractItems"
+                        :key="idx"
+                    >
+                        <component
+                            :is="`Base${field.component}`"
+                            v-for="field of subfields"
+                            :key="field.name"
+                            :name="field.name"
+                            :type="field.type"
+                            :placeholder="field.placeholder || field.label"
+                            :label="field.label"
+                            v-model="$root[field.name]"
+                            :error="errors[field.name]"
+                        />
+                    </div>
+                </form-fields-group>
 
                 <BaseButton text="Отправить" />
             </form>
@@ -103,6 +126,10 @@ export default {
         },
         clientFields() {
             const allClientFields = this.getFieldsByArea('client');
+            return this.separateFieldsBySubarea(allClientFields);
+        },
+        contractItems() {
+            const allClientFields = this.getFieldsByArea('contract-items');
             return this.separateFieldsBySubarea(allClientFields);
         },
     },
