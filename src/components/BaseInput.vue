@@ -5,7 +5,7 @@
             class="w-full border border-solid border-black/10 p-4 bg-white/80 text-sm block rounded-lg shadow-inner focus:shadow-md transition-all duration-300 text-black"
             :id="uuid"
             v-bind="$attrs"
-            :placeholder="label"
+            :placeholder="placeholder"
             :modelValue="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
         />
@@ -28,6 +28,10 @@ export default {
             default: '',
         },
         modelValue: {
+            type: [String, Number],
+            default: '',
+        },
+        placeholder: {
             type: [String, Number],
             default: '',
         },

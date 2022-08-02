@@ -5,6 +5,7 @@
     "name": "contractNumber",
     "type": "text",
     "label": "Номер договора",
+    "placeholder": "Номер",
     "validations": {
       "required": true,
       "type": "number"

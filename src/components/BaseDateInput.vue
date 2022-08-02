@@ -9,7 +9,7 @@
             modelType="dd.mm.yyyy"
             :locale="locale"
             v-bind="$attrs"
-            :placeholder="label"
+            :placeholder="placeholder"
             @input="$emit('update:modelValue', $event.target.value)"
         />
         <BaseError :error="error" />
@@ -31,6 +31,10 @@ export default {
             default: '',
         },
         modelValue: {
+            type: [String, Number],
+            default: '',
+        },
+        placeholder: {
             type: [String, Number],
             default: '',
         },

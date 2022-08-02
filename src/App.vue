@@ -15,6 +15,7 @@
                             :name="field.name"
                             :type="field.type"
                             :label="field.label"
+                            :placeholder="field.placeholder || field.label"
                             v-model="$root[field.name]"
                             :error="errors[field.name]"
                         />
@@ -41,6 +42,7 @@
                                 :name="field.name"
                                 :type="field.type"
                                 :label="field.label"
+                                :placeholder="field.placeholder || field.label"
                                 v-model="$root[field.name]"
                                 :error="errors[field.name]"
                             />
@@ -68,6 +70,7 @@
                                 :name="field.name"
                                 :type="field.type"
                                 :label="field.label"
+                                :placeholder="field.placeholder || field.label"
                                 v-model="$root[field.name]"
                                 :error="errors[field.name]"
                             />
