@@ -652,5 +652,53 @@
       "required": true,
       "type": "string"
     }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageName",
+    "type": "text",
+    "label": "Этап",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageDescription",
+    "type": "text",
+    "label": "Описание этапа",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageTerms",
+    "type": "text",
+    "label": "Сроки",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStagePrice",
+    "type": "text",
+    "label": "Стоимость",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
   }
 ]

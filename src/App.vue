@@ -106,10 +106,18 @@
                         :class="{
                             'grid grid-cols-3 gap-x-5 max-w-[60%] mx-auto':
                                 subfields[0].subarea === 'order-main',
+                            'grid grid-cols-4 gap-x-5 gap-y-2.5':
+                                subfields[0].subarea === 'order-stage',
                         }"
                         v-for="(subfields, idx) in orderFields"
                         :key="idx"
                     >
+                        <p
+                            class="text-center mx-auto font-bold col-start-1 col-end-5"
+                            v-if="subfields[0].subarea === 'order-stage'"
+                        >
+                            Этапы, сроки и стоимость выполнения Работ
+                        </p>
                         <component
                             :is="`Base${field.component}`"
                             v-for="field of subfields"
@@ -121,6 +129,13 @@
                             v-model="$root[field.name]"
                             :error="errors[field.name]"
                         />
+                        <span
+                            class="px-4 py-2 text-center block rounded-lg border cursor-pointer border-solid border-black/10 shadow-inner font-medium hover:bg-stone-200 transition-all col-start-2 col-end-4"
+                            v-if="subfields[0].subarea === 'order-stage'"
+                            @click="createField(subfields.at(-1))"
+                        >
+                            Добавить
+                        </span>
                     </div>
                 </form-fields-group>
 
@@ -178,6 +193,9 @@ export default {
             });
 
             return result;
+        },
+        createField(currentLastField) {
+            console.log(currentLastField);
         },
     },
     setup() {
