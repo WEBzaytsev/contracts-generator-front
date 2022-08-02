@@ -614,5 +614,43 @@
       "required": true,
       "type": "string"
     }
+  },
+  {
+    "area": "order",
+    "subarea": "order-main",
+    "component": "Input",
+    "name": "orderNumber",
+    "type": "text",
+    "placeholder": "Номер",
+    "label": "Номер заказа",
+    "validations": {
+      "required": true,
+      "type": "number"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-main",
+    "component": "DateInput",
+    "name": "orderDate",
+    "type": "text",
+    "label": "Дата",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-main",
+    "component": "Input",
+    "name": "orderProject",
+    "type": "text",
+    "label": "Проект",
+    "placeholder": "project.com",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
   }
 ]

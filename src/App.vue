@@ -100,6 +100,30 @@
                     </div>
                 </form-fields-group>
 
+                <form-fields-group title="Заказ" class="mt-24">
+                    <div
+                        class="mb-6 last:mt-0"
+                        :class="{
+                            'grid grid-cols-3 gap-x-5 max-w-[60%] mx-auto':
+                                subfields[0].subarea === 'order-main',
+                        }"
+                        v-for="(subfields, idx) in orderFields"
+                        :key="idx"
+                    >
+                        <component
+                            :is="`Base${field.component}`"
+                            v-for="field of subfields"
+                            :key="field.name"
+                            :name="field.name"
+                            :type="field.type"
+                            :placeholder="field.placeholder || field.label"
+                            :label="field.label"
+                            v-model="$root[field.name]"
+                            :error="errors[field.name]"
+                        />
+                    </div>
+                </form-fields-group>
+
                 <BaseButton text="Отправить" />
             </form>
         </div>
@@ -130,6 +154,10 @@ export default {
         contractItems() {
             const allClientFields = this.getFieldsByArea('contract-items');
             return this.separateFieldsBySubarea(allClientFields);
+        },
+        orderFields() {
+            const allOrderFields = this.getFieldsByArea('order');
+            return this.separateFieldsBySubarea(allOrderFields);
         },
     },
     methods: {
