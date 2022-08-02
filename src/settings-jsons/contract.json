@@ -700,5 +700,198 @@
       "required": true,
       "type": "string"
     }
+  },
+
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageName1",
+    "type": "text",
+    "label": "Этап",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageDescription1",
+    "type": "text",
+    "label": "Описание этапа",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageTerms1",
+    "type": "text",
+    "label": "Сроки",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStagePrice1",
+    "type": "text",
+    "label": "Стоимость",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageName2",
+    "type": "text",
+    "label": "Этап",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageDescription2",
+    "type": "text",
+    "label": "Описание этапа",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageTerms2",
+    "type": "text",
+    "label": "Сроки",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStagePrice2",
+    "type": "text",
+    "label": "Стоимость",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageName3",
+    "type": "text",
+    "label": "Этап",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageDescription3",
+    "type": "text",
+    "label": "Описание этапа",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageTerms3",
+    "type": "text",
+    "label": "Сроки",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStagePrice3",
+    "type": "text",
+    "label": "Стоимость",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageName4",
+    "type": "text",
+    "label": "Этап",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageDescription4",
+    "type": "text",
+    "label": "Описание этапа",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStageTerms4",
+    "type": "text",
+    "label": "Сроки",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  {
+    "area": "order",
+    "subarea": "order-stage",
+    "component": "Textarea",
+    "name": "orderStagePrice4",
+    "type": "text",
+    "label": "Стоимость",
+    "validations": {
+      "required": true,
+      "type": "string"
+    }
   }
 ]
