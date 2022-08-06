@@ -699,6 +699,94 @@
           }
         }
       ]
+    ],
+    "payment-order": [
+      {
+        "component": "Textarea",
+        "name": "paymentOrderBefore",
+        "type": "text",
+        "value": "",
+        "label": "Предоплата",
+        "placeholder": "50% от стоимости этапа (предоплата)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "paymentTermNumber",
+        "type": "text",
+        "value": "",
+        "label": "Период предоплаты",
+        "placeholder": "Число",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "paymentTermString",
+        "type": "text",
+        "value": "",
+        "label": "Период предоплаты",
+        "placeholder": "Прописью",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Textarea",
+        "name": "paymentOrderAfter",
+        "type": "text",
+        "value": "",
+        "label": "Постоплата",
+        "placeholder": "Оставшиеся 50% от стоимости этапа",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "intellectual-property": [
+      {
+        "component": "Input",
+        "name": "intellectualPropertyFull",
+        "type": "text",
+        "value": "",
+        "label": "Интеллектуальная собственность",
+        "placeholder": "Полное название",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "intellectualPropertyShort",
+        "type": "text",
+        "value": "",
+        "label": "Интеллектуальная собственность",
+        "placeholder": "Краткое название",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorSite",
+        "type": "text",
+        "value": "",
+        "label": "Сайт исполнителя",
+        "placeholder": "http://proactivity.ru/",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
     ]
   }
 }
