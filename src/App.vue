@@ -105,6 +105,10 @@
                                 key === 'order-main',
                             'grid grid-cols-4 gap-x-5 gap-y-2.5':
                                 key === 'order-stage',
+                            'grid grid-cols-4 gap-x-5 items-start gap-y-2.5':
+                                subfields.length >= 2 &&
+                                key !== 'order-main' &&
+                                key !== 'order-stage',
                         }"
                         :key="key"
                     >
