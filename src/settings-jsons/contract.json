@@ -1,897 +1,704 @@
-[
-  {
-    "area": "main",
-    "component": "Input",
-    "name": "contractNumber",
-    "type": "text",
-    "label": "Номер договора",
-    "placeholder": "Номер",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "main",
-    "component": "DateInput",
-    "name": "contractDate",
-    "type": "text",
-    "label": "Дата",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "main",
-    "component": "Input",
-    "name": "contractCity",
-    "type": "text",
-    "label": "Город",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "executorSecondName",
-    "type": "text",
-    "label": "Фамилия",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "executorFirstName",
-    "type": "text",
-    "label": "Имя",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "executorLastName",
-    "type": "text",
-    "label": "Отчество",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "contact-info",
-    "component": "Input",
-    "name": "executorEmail",
-    "type": "text",
-    "label": "Email",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "contact-info",
-    "component": "Input",
-    "name": "executorPhone",
-    "type": "text",
-    "label": "Телефон",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "business-info",
-    "component": "Input",
-    "name": "executorCompany",
-    "type": "text",
-    "label": "Наименование организации",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "business-info",
-    "component": "Input",
-    "name": "executorPosition",
-    "type": "text",
-    "label": "Должность",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "legal-info",
-    "component": "Textarea",
-    "name": "executorLegalAddress",
-    "type": "text",
-    "label": "Юридический адрес",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank",
-    "component": "Input",
-    "name": "executorDocument",
-    "type": "text",
-    "label": "Документ(устав)",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank",
-    "component": "Input",
-    "name": "executorBankName",
-    "type": "text",
-    "label": "Банк",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "executorINN",
-    "type": "text",
-    "label": "ИНН",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "executorKPP",
-    "type": "text",
-    "label": "КПП",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "executorBIC",
-    "type": "text",
-    "label": "БИК",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank-account",
-    "component": "Input",
-    "name": "executorCheckingAccount",
-    "type": "text",
-    "label": "Расчётный счёт",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "executor",
-    "subarea": "bank-account",
-    "component": "Input",
-    "name": "executorCorespondentAccount",
-    "type": "text",
-    "label": "Корреспондентский счёт",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "clientSecondName",
-    "type": "text",
-    "label": "Фамилия",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "clientFirstName",
-    "type": "text",
-    "label": "Имя",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "fio",
-    "component": "Input",
-    "name": "clientLastName",
-    "type": "text",
-    "label": "Отчество",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "contact-info",
-    "component": "Input",
-    "name": "clientEmail",
-    "type": "text",
-    "label": "Email",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "contact-info",
-    "component": "Input",
-    "name": "clientPhone",
-    "type": "text",
-    "label": "Телефон",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "business-info",
-    "component": "Input",
-    "name": "clientCompany",
-    "type": "text",
-    "label": "Наименование организации",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "business-info",
-    "component": "Input",
-    "name": "clientPosition",
-    "type": "text",
-    "label": "Должность",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "legal-info",
-    "component": "Textarea",
-    "name": "clientLegalAddress",
-    "type": "text",
-    "label": "Юридический адрес",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank",
-    "component": "Input",
-    "name": "clientDocument",
-    "type": "text",
-    "label": "Документ(устав)",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank",
-    "component": "Input",
-    "name": "clientBankName",
-    "type": "text",
-    "label": "Банк",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "clientINN",
-    "type": "text",
-    "label": "ИНН",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "clientKPP",
-    "type": "text",
-    "label": "КПП",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank-info",
-    "component": "Input",
-    "name": "clientBIC",
-    "type": "text",
-    "label": "БИК",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank-account",
-    "component": "Input",
-    "name": "clientCheckingAccount",
-    "type": "text",
-    "label": "Расчётный счёт",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "client",
-    "subarea": "bank-account",
-    "component": "Input",
-    "name": "clientCorespondentAccount",
-    "type": "text",
-    "label": "Корреспондентский счёт",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "min-sum",
-    "component": "Input",
-    "name": "contractMinPriceNumber",
-    "type": "text",
-    "label": "Стоимость",
-    "placeholder": "Число",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "min-sum",
-    "component": "Input",
-    "name": "contractMinPriceString",
-    "type": "text",
-    "label": "Стоимость",
-    "placeholder": "Прописью",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "finance-req",
-    "component": "Textarea",
-    "name": "contractNDS",
-    "type": "text",
-    "label": "Условия НДС",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "dailyDelayFineNumber",
-    "type": "text",
-    "label": "Пеня за день просрочки",
-    "placeholder": "%",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "dailyDelayFineString",
-    "type": "text",
-    "label": "Пеня за день просрочки",
-    "placeholder": "Прописью",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "maxDelayFineNumber",
-    "type": "text",
-    "label": "Максимальная пеня",
-    "placeholder": "%",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "maxDelayFineString",
-    "type": "text",
-    "label": "Максимальная пеня",
-    "placeholder": "Прописью",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "deadlineDelayFineNumber",
-    "type": "text",
-    "label": "Срок выплаты пени (дней)",
-    "placeholder": "Числом",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "delay-fine",
-    "component": "Input",
-    "name": "deadlineDelayFineString",
-    "type": "text",
-    "label": "Срок выплаты пени (дней)",
-    "placeholder": "Прописью",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "force-majeure",
-    "component": "Input",
-    "name": "forceMajeureDelayNumber",
-    "type": "text",
-    "placeholder": "Число",
-    "label": "На сколько дней возможно отложить исполнение",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "force-majeure",
-    "component": "Input",
-    "name": "forceMajeureDelayString",
-    "type": "text",
-    "placeholder": "Прописью",
-    "label": "На сколько дней возможно отложить исполнение",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "force-majeure",
-    "component": "Input",
-    "name": "forceMajeureNotifyNumber",
-    "type": "text",
-    "placeholder": "Число",
-    "label": "Сообщить не позднее (дней)",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "force-majeure",
-    "component": "Input",
-    "name": "forceMajeureNotifyString",
-    "type": "text",
-    "placeholder": "Прописью",
-    "label": "Сообщить не позднее (дней)",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-
-  {
-    "area": "contract-items",
-    "subarea": "disputes",
-    "component": "Input",
-    "name": "disputesTermNumber",
-    "type": "text",
-    "placeholder": "Число",
-    "label": "Ответ на претензию предоставляется в срок (дней)",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "disputes",
-    "component": "Input",
-    "name": "disputesTermString",
-    "type": "text",
-    "placeholder": "Прописью",
-    "label": "Ответ на претензию предоставляется в срок (дней)",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-
-  {
-    "area": "contract-items",
-    "subarea": "unilateral-termination",
-    "component": "Input",
-    "name": "unilateralTerminationNumber",
-    "type": "text",
-    "placeholder": "Число",
-    "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "contract-items",
-    "subarea": "unilateral-termination",
-    "component": "Input",
-    "name": "unilateralTerminationString",
-    "type": "text",
-    "placeholder": "Прописью",
-    "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-main",
-    "component": "Input",
-    "name": "orderNumber",
-    "type": "text",
-    "placeholder": "Номер",
-    "label": "Номер заказа",
-    "validations": {
-      "required": true,
-      "type": "number"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-main",
-    "component": "DateInput",
-    "name": "orderDate",
-    "type": "text",
-    "label": "Дата",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-main",
-    "component": "Input",
-    "name": "orderProject",
-    "type": "text",
-    "label": "Проект",
-    "placeholder": "project.com",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageName",
-    "type": "text",
-    "label": "Этап",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageDescription",
-    "type": "text",
-    "label": "Описание этапа",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageTerms",
-    "type": "text",
-    "label": "Сроки",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStagePrice",
-    "type": "text",
-    "label": "Стоимость",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageName1",
-    "type": "text",
-    "label": "Этап",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageDescription1",
-    "type": "text",
-    "label": "Описание этапа",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageTerms1",
-    "type": "text",
-    "label": "Сроки",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStagePrice1",
-    "type": "text",
-    "label": "Стоимость",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageName2",
-    "type": "text",
-    "label": "Этап",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageDescription2",
-    "type": "text",
-    "label": "Описание этапа",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageTerms2",
-    "type": "text",
-    "label": "Сроки",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStagePrice2",
-    "type": "text",
-    "label": "Стоимость",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageName3",
-    "type": "text",
-    "label": "Этап",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageDescription3",
-    "type": "text",
-    "label": "Описание этапа",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageTerms3",
-    "type": "text",
-    "label": "Сроки",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStagePrice3",
-    "type": "text",
-    "label": "Стоимость",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageName4",
-    "type": "text",
-    "label": "Этап",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageDescription4",
-    "type": "text",
-    "label": "Описание этапа",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStageTerms4",
-    "type": "text",
-    "label": "Сроки",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
-  },
-  {
-    "area": "order",
-    "subarea": "order-stage",
-    "component": "Textarea",
-    "name": "orderStagePrice4",
-    "type": "text",
-    "label": "Стоимость",
-    "validations": {
-      "required": true,
-      "type": "string"
-    }
+{
+  "main-info": [
+    {
+      "component": "Input",
+      "name": "contractNumber",
+      "type": "text",
+      "value": "",
+      "label": "Номер договора",
+      "placeholder": "Номер",
+      "validations": {
+        "required": true,
+        "type": "number"
+      }
+    },
+    {
+      "component": "DateInput",
+      "name": "contractDate",
+      "type": "text",
+      "value": "",
+      "label": "Дата",
+      "validations": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    {
+      "component": "Input",
+      "name": "contractCity",
+      "type": "text",
+      "value": "",
+      "label": "Город",
+      "validations": {
+        "required": true,
+        "type": "string"
+      }
+    }
+  ],
+  "executor-info": {
+    "fio": [
+      {
+        "component": "Input",
+        "name": "executorSecondName",
+        "type": "text",
+        "value": "",
+        "label": "Фамилия",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorFirstName",
+        "type": "text",
+        "value": "",
+        "label": "Имя",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorLastName",
+        "type": "text",
+        "value": "",
+        "label": "Отчество",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "contact-info": [
+      {
+        "component": "Input",
+        "name": "executorEmail",
+        "type": "text",
+        "value": "",
+        "label": "Email",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorPhone",
+        "type": "text",
+        "value": "",
+        "label": "Телефон",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "business-info": [
+      {
+        "component": "Input",
+        "name": "executorCompany",
+        "type": "text",
+        "value": "",
+        "label": "Наименование организации",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorPosition",
+        "type": "text",
+        "value": "",
+        "label": "Должность",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "legal-info": [
+      {
+        "component": "Textarea",
+        "name": "executorLegalAddress",
+        "type": "text",
+        "value": "",
+        "label": "Юридический адрес",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "bank": [
+      {
+        "component": "Input",
+        "name": "executorDocument",
+        "type": "text",
+        "value": "",
+        "label": "Документ(устав)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorBankName",
+        "type": "text",
+        "value": "",
+        "label": "Банк",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "bank-info": [
+      {
+        "component": "Input",
+        "name": "executorINN",
+        "type": "text",
+        "value": "",
+        "label": "ИНН",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorKPP",
+        "type": "text",
+        "value": "",
+        "label": "КПП",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorBIC",
+        "type": "text",
+        "value": "",
+        "label": "БИК",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      }
+    ],
+    "bank-account": [
+      {
+        "component": "Input",
+        "name": "executorCheckingAccount",
+        "type": "text",
+        "value": "",
+        "label": "Расчётный счёт",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "executorCorespondentAccount",
+        "type": "text",
+        "value": "",
+        "label": "Корреспондентский счёт",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      }
+    ]
+  },
+  "client-info": {
+    "fio": [
+      {
+        "component": "Input",
+        "name": "clientSecondName",
+        "type": "text",
+        "value": "",
+        "label": "Фамилия",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientFirstName",
+        "type": "text",
+        "value": "",
+        "label": "Имя",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientLastName",
+        "type": "text",
+        "value": "",
+        "label": "Отчество",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "contact-info": [
+      {
+        "component": "Input",
+        "name": "clientEmail",
+        "type": "text",
+        "value": "",
+        "label": "Email",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientPhone",
+        "type": "text",
+        "value": "",
+        "label": "Телефон",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "business-info": [
+      {
+        "component": "Input",
+        "name": "clientCompany",
+        "type": "text",
+        "value": "",
+        "label": "Наименование организации",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientPosition",
+        "type": "text",
+        "value": "",
+        "label": "Должность",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "legal-info": [
+      {
+        "component": "Textarea",
+        "name": "clientLegalAddress",
+        "type": "text",
+        "value": "",
+        "label": "Юридический адрес",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "bank": [
+      {
+        "component": "Input",
+        "name": "clientDocument",
+        "type": "text",
+        "value": "",
+        "label": "Документ(устав)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientBankName",
+        "type": "text",
+        "value": "",
+        "label": "Банк",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "bank-info": [
+      {
+        "component": "Input",
+        "name": "clientINN",
+        "type": "text",
+        "value": "",
+        "label": "ИНН",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientKPP",
+        "type": "text",
+        "value": "",
+        "label": "КПП",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientBIC",
+        "type": "text",
+        "value": "",
+        "label": "БИК",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      }
+    ],
+    "bank-account": [
+      {
+        "component": "Input",
+        "name": "clientCheckingAccount",
+        "type": "text",
+        "value": "",
+        "label": "Расчётный счёт",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "clientCorespondentAccount",
+        "type": "text",
+        "value": "",
+        "label": "Корреспондентский счёт",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      }
+    ]
+  },
+  "contract-items": {
+    "min-sum": [
+      {
+        "component": "Input",
+        "name": "contractMinPriceNumber",
+        "type": "text",
+        "value": "",
+        "label": "Стоимость",
+        "placeholder": "Число",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "contractMinPriceString",
+        "type": "text",
+        "value": "",
+        "label": "Стоимость",
+        "placeholder": "Прописью",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "finance-req": [
+      {
+        "component": "Textarea",
+        "name": "contractNDS",
+        "type": "text",
+        "value": "",
+        "label": "Условия НДС",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "delay-fine": [
+      {
+        "component": "Input",
+        "name": "dailyDelayFineNumber",
+        "type": "text",
+        "value": "",
+        "label": "Пеня за день просрочки",
+        "placeholder": "%",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "dailyDelayFineString",
+        "type": "text",
+        "value": "",
+        "label": "Пеня за день просрочки",
+        "placeholder": "Прописью",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "maxDelayFineNumber",
+        "type": "text",
+        "value": "",
+        "label": "Максимальная пеня",
+        "placeholder": "%",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "maxDelayFineString",
+        "type": "text",
+        "value": "",
+        "label": "Максимальная пеня",
+        "placeholder": "Прописью",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "deadlineDelayFineNumber",
+        "type": "text",
+        "value": "",
+        "label": "Срок выплаты пени (дней)",
+        "placeholder": "Числом",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "deadlineDelayFineString",
+        "type": "text",
+        "value": "",
+        "label": "Срок выплаты пени (дней)",
+        "placeholder": "Прописью",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "force-majeure": [
+      {
+        "component": "Input",
+        "name": "forceMajeureDelayNumber",
+        "type": "text",
+        "value": "",
+        "placeholder": "Число",
+        "label": "На сколько дней возможно отложить исполнение",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "forceMajeureDelayString",
+        "type": "text",
+        "value": "",
+        "placeholder": "Прописью",
+        "label": "На сколько дней возможно отложить исполнение",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "forceMajeureNotifyNumber",
+        "type": "text",
+        "value": "",
+        "placeholder": "Число",
+        "label": "Сообщить не позднее (дней)",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "forceMajeureNotifyString",
+        "type": "text",
+        "value": "",
+        "placeholder": "Прописью",
+        "label": "Сообщить не позднее (дней)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "disputes": [
+      {
+        "component": "Input",
+        "name": "disputesTermNumber",
+        "type": "text",
+        "value": "",
+        "placeholder": "Число",
+        "label": "Ответ на претензию предоставляется в срок (дней)",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "disputesTermString",
+        "type": "text",
+        "value": "",
+        "placeholder": "Прописью",
+        "label": "Ответ на претензию предоставляется в срок (дней)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "unilateral-termination": [
+      {
+        "component": "Input",
+        "name": "unilateralTerminationNumber",
+        "type": "text",
+        "value": "",
+        "placeholder": "Число",
+        "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "unilateralTerminationString",
+        "type": "text",
+        "value": "",
+        "placeholder": "Прописью",
+        "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "order-info": {
+    "order-main": [
+      {
+        "component": "Input",
+        "name": "orderNumber",
+        "type": "text",
+        "value": "",
+        "placeholder": "Номер",
+        "label": "Номер заказа",
+        "validations": {
+          "required": true,
+          "type": "number"
+        }
+      },
+      {
+        "component": "DateInput",
+        "name": "orderDate",
+        "type": "text",
+        "value": "",
+        "label": "Дата",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      {
+        "component": "Input",
+        "name": "orderProject",
+        "type": "text",
+        "value": "",
+        "label": "Проект",
+        "placeholder": "project.com",
+        "validations": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    ],
+    "order-stage": [
+      [
+        {
+          "component": "Textarea",
+          "name": "orderStageName",
+          "type": "text",
+          "value": "",
+          "label": "Этап",
+          "validations": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        {
+          "component": "Textarea",
+          "name": "orderStageDescription",
+          "type": "text",
+          "value": "",
+          "label": "Описание этапа",
+          "validations": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        {
+          "component": "Textarea",
+          "name": "orderStageTerms",
+          "type": "text",
+          "value": "",
+          "label": "Сроки",
+          "validations": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        {
+          "component": "Textarea",
+          "name": "orderStagePrice",
+          "type": "text",
+          "value": "",
+          "label": "Стоимость",
+          "validations": {
+            "required": true,
+            "type": "string"
+          }
+        }
+      ]
+    ]
   }
-]
+}

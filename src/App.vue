@@ -3,21 +3,20 @@
         <div
             class="container mx-auto bg-white/50 rounded-xl shadow-lg px-4 py-12"
         >
-            <form @submit="submit">
+            <form @submit.prevent="submitHandler">
                 <form-fields-group title="Основные данные">
                     <div
                         class="max-w-[800px] grid grid-cols-4 gap-x-7.5 w-fit mx-auto"
                     >
                         <component
                             :is="`Base${field.component}`"
-                            v-for="field of mainFields"
-                            :key="field.name"
+                            v-for="(field, idx) of fields['main-info']"
+                            :key="idx"
                             :name="field.name"
                             :type="field.type"
                             :label="field.label"
                             :placeholder="field.placeholder || field.label"
-                            v-model="$root[field.name]"
-                            :error="errors[field.name]"
+                            v-model="field.value"
                         />
                     </div>
                 </form-fields-group>
@@ -32,19 +31,18 @@
                                 'grid grid-cols-2 gap-x-5 gap-y-2.5':
                                     subfields.length >= 2,
                             }"
-                            v-for="(subfields, idx) in executorFields"
+                            v-for="(subfields, idx) in fields['executor-info']"
                             :key="idx"
                         >
                             <component
                                 :is="`Base${field.component}`"
-                                v-for="field of subfields"
-                                :key="field.name"
+                                v-for="(field, id) of subfields"
+                                :key="id"
                                 :name="field.name"
                                 :type="field.type"
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
                                 v-model="$root[field.name]"
-                                :error="errors[field.name]"
                             />
                         </div>
                     </form-fields-group>
@@ -59,19 +57,18 @@
                                 'grid grid-cols-2 gap-x-5 gap-y-2.5':
                                     subfields.length >= 2,
                             }"
-                            v-for="(subfields, idx) in clientFields"
+                            v-for="(subfields, idx) in fields['client-info']"
                             :key="idx"
                         >
                             <component
                                 :is="`Base${field.component}`"
-                                v-for="field of subfields"
-                                :key="field.name"
+                                v-for="(field, id) of subfields"
+                                :key="id"
                                 :name="field.name"
                                 :type="field.type"
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
-                                v-model="$root[field.name]"
-                                :error="errors[field.name]"
+                                v-model="field.value"
                             />
                         </div>
                     </form-fields-group>
@@ -83,19 +80,18 @@
                             'grid grid-cols-4 gap-x-5 items-end gap-y-2.5':
                                 subfields.length >= 2,
                         }"
-                        v-for="(subfields, idx) in contractItems"
+                        v-for="(subfields, idx) in fields['contract-items']"
                         :key="idx"
                     >
                         <component
                             :is="`Base${field.component}`"
-                            v-for="field of subfields"
-                            :key="field.name"
+                            v-for="(field, id) of subfields"
+                            :key="id"
                             :name="field.name"
                             :type="field.type"
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
-                            v-model="$root[field.name]"
-                            :error="errors[field.name]"
+                            v-model="field.value"
                         />
                     </div>
                 </form-fields-group>
@@ -103,36 +99,54 @@
                 <form-fields-group title="Заказ" class="mt-24">
                     <div
                         class="mb-6 last:mt-0"
+                        v-for="(subfields, key) in fields['order-info']"
                         :class="{
                             'grid grid-cols-3 gap-x-5 max-w-[60%] mx-auto':
-                                subfields[0].subarea === 'order-main',
+                                key === 'order-main',
                             'grid grid-cols-4 gap-x-5 gap-y-2.5':
-                                subfields[0].subarea === 'order-stage',
+                                key === 'order-stage',
                         }"
-                        v-for="(subfields, idx) in orderFields"
-                        :key="idx"
+                        :key="key"
                     >
-                        <p
-                            class="text-center mx-auto font-bold col-start-1 col-end-5"
-                            v-if="subfields[0].subarea === 'order-stage'"
-                        >
-                            Этапы, сроки и стоимость выполнения Работ
-                        </p>
+                        <template v-if="key === 'order-stage'">
+                            <p
+                                class="text-center mx-auto font-bold col-start-1 col-end-5"
+                            >
+                                Этапы, сроки и стоимость выполнения Работ
+                            </p>
+                            <template
+                                v-for="(items, index) of subfields"
+                                :key="index"
+                            >
+                                <component
+                                    :is="`Base${field.component}`"
+                                    v-for="(field, id) of items"
+                                    :key="id"
+                                    :name="field.name"
+                                    :type="field.type"
+                                    :placeholder="
+                                        field.placeholder || field.label
+                                    "
+                                    :label="field.label"
+                                    v-model="field.value"
+                                />
+                            </template>
+                        </template>
                         <component
+                            v-else
                             :is="`Base${field.component}`"
-                            v-for="field of subfields"
-                            :key="field.name"
+                            v-for="(field, id) of subfields"
+                            :key="id"
                             :name="field.name"
                             :type="field.type"
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
-                            v-model="$root[field.name]"
-                            :error="errors[field.name]"
+                            v-model="field.value"
                         />
                         <span
                             class="px-4 py-2 text-center block rounded-lg border cursor-pointer border-solid border-black/10 shadow-inner font-medium hover:bg-stone-200 transition-all col-start-2 col-end-4"
-                            v-if="subfields[0].subarea === 'order-stage'"
-                            @click="createField(subfields.at(-1))"
+                            v-if="key === 'order-stage'"
+                            @click="duplicateOrderStageFields"
                         >
                             Добавить
                         </span>
@@ -146,96 +160,44 @@
 </template>
 
 <script>
-import { createDocument } from '@/api/api';
-import * as yup from 'yup';
-import { useField, useForm } from 'vee-validate';
 import FormFieldsGroup from '@/components/FormFieldsGroup';
 
 export default {
     name: 'App',
     components: { FormFieldsGroup },
-    computed: {
-        mainFields() {
-            return this.getFieldsByArea('main');
-        },
-        executorFields() {
-            const allExecutorFields = this.getFieldsByArea('executor');
-            return this.separateFieldsBySubarea(allExecutorFields);
-        },
-        clientFields() {
-            const allClientFields = this.getFieldsByArea('client');
-            return this.separateFieldsBySubarea(allClientFields);
-        },
-        contractItems() {
-            const allClientFields = this.getFieldsByArea('contract-items');
-            return this.separateFieldsBySubarea(allClientFields);
-        },
-        orderFields() {
-            const allOrderFields = this.getFieldsByArea('order');
-            return this.separateFieldsBySubarea(allOrderFields);
-        },
-    },
-    methods: {
-        getFieldsByArea(areaName) {
-            return this.formFields.filter((f) => f.area === areaName);
-        },
-        separateFieldsBySubarea(fieldsArray) {
-            let subarea = '';
-            const result = {};
-
-            fieldsArray.forEach((item) => {
-                if (item.subarea === subarea) {
-                    result[subarea].push(item);
-                    return;
-                }
-                subarea = item.subarea;
-                result[subarea] = [item];
-            });
-
-            return result;
-        },
-        createField(currentLastField) {
-            console.log(currentLastField);
-        },
-    },
-    setup() {
-        const formFields = require('@/settings-jsons/contract.json');
-        const validations = {};
-
-        for (let field of formFields) {
-            if (field.validations.type === 'string') {
-                validations[field.name] = yup.string();
-                /*.required(`Заполните ${field.label}`)*/
-            }
-
-            if (field.validations.type === 'number') {
-                validations[field.name] = yup.number();
-                /*.required(`Заполните ${field.label}`)*/
-            }
-        }
-
-        const validationSchema = yup.object(validations);
-
-        const { handleSubmit, errors } = useForm({
-            validationSchema,
-        });
-
-        const submit = handleSubmit((values) => {
-            createDocument(values);
-        });
-
-        const objectToReturn = {
-            submit,
-            formFields,
-            errors,
+    data() {
+        return {
+            fields: require('@/settings-jsons/contract.json'),
         };
+    },
+    computed: {},
+    methods: {
+        submitHandler() {
+            console.log('submitted');
+        },
+        duplicateOrderStageFields() {
+            this.fields['order-info']['order-stage'].push([]);
 
-        for (let field of formFields) {
-            const { value: currentField } = useField(field.name);
-            objectToReturn[field.name] = currentField;
-        }
+            const fieldsArray = this.fields['order-info']['order-stage'][0];
 
-        return objectToReturn;
+            for (let item of fieldsArray) {
+                const copiedItem = Object.assign({}, item);
+
+                if (this.fields['order-info']['order-stage'].length > 2) {
+                    copiedItem.name = `${copiedItem.name.slice(0, -1)}${
+                        this.fields['order-info']['order-stage'].length - 1
+                    }`;
+                } else {
+                    copiedItem.name += 1;
+                }
+
+                copiedItem.value = '';
+
+                this.fields['order-info']['order-stage']
+                    .at(-1)
+                    .push(copiedItem);
+            }
+        },
     },
 };
 </script>
