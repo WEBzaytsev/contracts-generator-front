@@ -161,6 +161,8 @@
 
 <script>
 import FormFieldsGroup from '@/components/FormFieldsGroup';
+import { defineProperty } from '@/utils/defineProperty';
+import { createDocument } from '@/api/api';
 
 export default {
     name: 'App',
@@ -172,8 +174,34 @@ export default {
     },
     computed: {},
     methods: {
-        submitHandler() {
-            console.log('submitted');
+        async submitHandler() {
+            const staticFields = this.getAllStaticFields();
+
+            const orderStages = [];
+            const currentArr = this.fields['order-info']['order-stage'];
+            currentArr.forEach((item, index) => {
+                const newItem = {
+                    orderStageId: index + 1,
+                };
+                item.forEach((i, idx) => {
+                    defineProperty(
+                        newItem,
+                        currentArr.at(0).at(idx)['name'],
+                        i.value
+                    );
+                });
+
+                orderStages.push(newItem);
+            });
+
+            const objectToSend = {
+                staticFields,
+                orderStages,
+            };
+
+            const request = await createDocument(objectToSend);
+
+            console.log(await request);
         },
         duplicateOrderStageFields() {
             this.fields['order-info']['order-stage'].push([]);
@@ -184,7 +212,7 @@ export default {
                 const copiedItem = Object.assign({}, item);
 
                 if (this.fields['order-info']['order-stage'].length > 2) {
-                    copiedItem.name = `${copiedItem.name.slice(0, -1)}${
+                    copiedItem.name = `${copiedItem.name}${
                         this.fields['order-info']['order-stage'].length - 1
                     }`;
                 } else {
@@ -197,6 +225,39 @@ export default {
                     .at(-1)
                     .push(copiedItem);
             }
+        },
+        getAllStaticFields() {
+            const allValues = {};
+            this.getStaticValues(this.fields, allValues);
+            return allValues;
+        },
+        getStaticValues(instance, sourceObject) {
+            if (Array.isArray(instance)) {
+                //TODO: fix it work around if possible
+                if (Array.isArray(instance.at(0))) {
+                    return;
+                }
+                //TODO: end
+
+                instance.forEach((item) =>
+                    this.getStaticValues(item, sourceObject)
+                );
+                return;
+            }
+
+            if (typeof instance === 'object') {
+                if (
+                    instance.value === undefined ||
+                    instance.name === undefined
+                ) {
+                    Object.values(instance).forEach((item) =>
+                        this.getStaticValues(item, sourceObject)
+                    );
+                    return;
+                }
+            }
+
+            defineProperty(sourceObject, instance.name, instance.value);
         },
     },
 };

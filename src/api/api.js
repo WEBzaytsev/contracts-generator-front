@@ -12,7 +12,7 @@ export const createDocument = async (data) => {
             body: formData,
         });
 
-        return await request.text();
+        return await request.json();
     } catch (e) {
         console.log(e);
         return false;
