@@ -4,6 +4,7 @@
         <VueDatepicker
             class=""
             :modelValue="modelValue"
+            :enableTimePicker="false"
             :uid="uuid"
             :format="format"
             modelType="dd.mm.yyyy"
