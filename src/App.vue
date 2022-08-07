@@ -42,7 +42,7 @@
                                 :type="field.type"
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
-                                v-model="$root[field.name]"
+                                v-model="field.value"
                             />
                         </div>
                     </form-fields-group>
