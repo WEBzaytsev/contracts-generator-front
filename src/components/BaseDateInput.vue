@@ -7,7 +7,7 @@
             :enableTimePicker="false"
             :uid="uuid"
             :format="format"
-            modelType="dd.mm.yyyy"
+            modelType="dd.MM.yyyy"
             :locale="locale"
             v-bind="$attrs"
             :placeholder="placeholder"
