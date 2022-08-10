@@ -1,4 +1,4 @@
-const url = 'http://contract-generator/word.php';
+const url = 'https://d.ondev.in/word.php';
 
 export const createDocument = async (data) => {
     const formData = new FormData();

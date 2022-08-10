@@ -157,7 +157,21 @@
                     </div>
                 </form-fields-group>
 
-                <BaseButton text="Отправить" />
+                <div class="flex w-full justify-center">
+                    <BaseButton
+                        v-if="downloadUrl"
+                        :url="downloadUrl"
+                        :download="true"
+                        text="Скачать"
+                    />
+                    <BaseButton text="Отправить" />
+                </div>
+                <p
+                    class="text-center text-red-600 py-2 mx-auto"
+                    v-if="!successSubmit"
+                >
+                    Ошибка. Попробуйте позже
+                </p>
             </form>
         </div>
     </div>
@@ -174,6 +188,8 @@ export default {
     data() {
         return {
             fields: require('@/settings-jsons/contract.json'),
+            downloadUrl: '',
+            successSubmit: true,
         };
     },
     computed: {},
@@ -206,6 +222,13 @@ export default {
             const request = await createDocument(objectToSend);
 
             console.log(await request);
+
+            if (await request.success) {
+                this.downloadUrl = `/${request['file_name']}`;
+                return;
+            }
+
+            this.successSubmit = false;
         },
         duplicateOrderStageFields() {
             this.fields['order-info']['order-stage'].push([]);
