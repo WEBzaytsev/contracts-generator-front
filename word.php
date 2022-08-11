@@ -1,30 +1,47 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors","On");
 
-require_once 'vendor/autoload.php';
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\TemplateProcessor;
 
-$document = new \PhpOffice\PhpWord\TemplateProcessor('./contract-template.docx');
+require_once './vendor/autoload.php';
 $autoload_dir = __DIR__;
+Settings::setTempDir('./templates');
+
+$document = new TemplateProcessor('./contract-template.docx');
 
 $data = json_decode($_POST['contract'], true);
 
 $static_fields = $data['staticFields'];
-$order_stages = $data['orderStages'];
+$collections = $data['collections'];
+
 $contract_number = $static_fields['contractNumber'];
 
 $output_file = 'contract_' . $contract_number . '.docx';
 
 if (!isset($data) || !count($data)) {
-    print_r(json_encode(array(
+    echo json_encode(array(
         'success' => false
-    )));
+    ));
     exit();
 }
 
 $document->setValues($static_fields);
-$document->cloneRowAndSetValues('orderStageName', $order_stages);
 
-$document->saveAs($output_file);
+foreach ($collections as $collection_name => $collection) {
+    $collectionWithId = $collection;
 
-print_r(json_encode(array(
-    'success' => true
-)));
+    for ($i = 0; $i < count($collectionWithId); $i++) {
+        $collectionWithId[$i][$collection_name . 'Id'] = $i + 1;
+    }
+
+    $document->cloneRowAndSetValues($collection_name . 'Id', $collectionWithId);
+}
+
+$document->saveAs('./templates/' . $output_file);
+
+echo json_encode(array(
+    'success' => true,
+    'file_name' => 'templates/' . $output_file,
+));
