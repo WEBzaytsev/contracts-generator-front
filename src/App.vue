@@ -238,7 +238,11 @@ export default {
         },
         duplicateFields(currentArr) {
             currentArr.push([
-                ...currentArr[0].map((c) => Object.assign({}, c)),
+                ...currentArr[0].map((c) => {
+                    const newElem = Object.assign({}, c);
+                    newElem.value = '';
+                    return newElem;
+                }),
             ]);
         },
         getAllStaticFields() {
