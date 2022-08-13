@@ -17,7 +17,9 @@
                             :label="field.label"
                             :placeholder="field.placeholder || field.label"
                             v-model="field.value"
-                            @blur="saveData"
+                            @update:modelValue="inputHandler(field)"
+                            @blur="blurHandler(field)"
+                            :error="errors[field.name] || ''"
                         />
                     </div>
                 </form-fields-group>
@@ -44,7 +46,9 @@
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
                                 v-model="field.value"
-                                @blur="saveData"
+                                @update:modelValue="inputHandler(field)"
+                                @blur="blurHandler(field)"
+                                :error="errors[field.name] || ''"
                             />
                         </div>
                     </form-fields-group>
@@ -71,7 +75,9 @@
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
                                 v-model="field.value"
-                                @blur="saveData"
+                                @update:modelValue="inputHandler(field)"
+                                @blur="blurHandler(field)"
+                                :error="errors[field.name] || ''"
                             />
                         </div>
                     </form-fields-group>
@@ -95,7 +101,9 @@
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
                             v-model="field.value"
-                            @blur="saveData"
+                            @update:modelValue="inputHandler(field)"
+                            @blur="blurHandler(field)"
+                            :error="errors[field.name] || ''"
                         />
                     </div>
                 </form-fields-group>
@@ -137,7 +145,7 @@
                                     "
                                     :label="field.label"
                                     v-model="field.value"
-                                    @blur="saveData"
+                                    @blur="blurHandler(field)"
                                 />
                             </template>
                         </template>
@@ -151,7 +159,9 @@
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
                             v-model="field.value"
-                            @blur="saveData"
+                            @update:modelValue="inputHandler(field)"
+                            @blur="blurHandler(field)"
+                            :error="errors[field.name] || ''"
                         />
                         <span
                             class="px-4 py-2 text-center block rounded-lg border cursor-pointer border-solid border-black/10 shadow-inner font-medium hover:bg-stone-200 transition-all col-start-2 col-end-4"
@@ -174,9 +184,9 @@
                 </div>
                 <p
                     class="text-center text-red-600 py-2 mx-auto"
-                    v-if="!successSubmit"
+                    v-if="formError"
                 >
-                    Ошибка. Попробуйте позже
+                    {{ formError }}
                 </p>
             </form>
         </div>
@@ -187,6 +197,8 @@
 import FormFieldsGroup from '@/components/FormFieldsGroup';
 import { defineProperty } from '@/utils/defineProperty';
 import { createDocument } from '@/api/api';
+import isUndefined from 'lodash/isUndefined';
+import isString from 'lodash/isString';
 
 export default {
     name: 'App',
@@ -195,13 +207,88 @@ export default {
         return {
             fields: require('@/settings-jsons/contract.json'),
             downloadUrl: '',
-            successSubmit: true,
+            formError: '',
+            errors: {},
         };
     },
     computed: {},
     methods: {
+        inputHandler(field) {
+            if (isUndefined(field.validations)) {
+                return;
+            }
+
+            this.validate(field);
+        },
+        blurHandler(field) {
+            this.saveData();
+            this.validate(field);
+        },
+        validate(field) {
+            let error;
+
+            if (field.validations.required) {
+                error = this.requiredValidate(field.value);
+            }
+
+            if (!error && field.validations.type === 'string') {
+                error = this.stringValidate(field.value);
+            }
+
+            if (!error && field.validations.type === 'number') {
+                error = this.numberValidate(field.value);
+            }
+
+            if (!error && this.errors[field.name]) {
+                delete this.errors[field.name];
+                return;
+            }
+
+            this.errors[field.name] = error;
+        },
+        requiredValidate(value) {
+            return value.trim() === '' ? '*Обязательно' : false;
+        },
+        stringValidate(value) {
+            return !isString(value) ? 'Ожидается строка' : false;
+        },
+        numberValidate(value) {
+            return isNaN(Number(value)) ? 'Ожидается число' : false;
+        },
+        checkValidates(instance) {
+            if (Array.isArray(instance)) {
+                //TODO: fix it work around if possible
+                if (Array.isArray(instance.at(0))) {
+                    return;
+                }
+                //TODO: end
+
+                instance.forEach((item) => this.checkValidates(item));
+                return;
+            }
+
+            if (typeof instance === 'object') {
+                if (isUndefined(instance.value) || isUndefined(instance.name)) {
+                    Object.values(instance).forEach((item) =>
+                        this.checkValidates(item)
+                    );
+                    return;
+                }
+            }
+
+            this.validate(instance);
+        },
         async submitHandler() {
-            const staticFields = this.getAllStaticFields();
+            this.checkValidates(this.fields);
+
+            if (Object.keys(this.errors).length) {
+                this.formError =
+                    'Ошибка. Проверьте правильность заполнения данных';
+                return;
+            }
+
+            const staticFields = {};
+            this.getStaticValues(this.fields, staticFields);
 
             const collections = {};
             const orderStages = [];
@@ -234,7 +321,7 @@ export default {
                 return;
             }
 
-            this.successSubmit = false;
+            this.formError = 'Ошибка. Попробуйте позже';
         },
         duplicateFields(currentArr) {
             currentArr.push([
@@ -244,11 +331,6 @@ export default {
                     return newElem;
                 }),
             ]);
-        },
-        getAllStaticFields() {
-            const allValues = {};
-            this.getStaticValues(this.fields, allValues);
-            return allValues;
         },
         getStaticValues(instance, sourceObject) {
             if (Array.isArray(instance)) {
@@ -292,8 +374,6 @@ export default {
                 JSON.parse(window.localStorage.getItem('contract-data'))
             );
         }
-
-        console.log(this.fields);
     },
 };
 </script>
