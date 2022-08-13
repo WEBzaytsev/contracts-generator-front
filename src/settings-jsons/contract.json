@@ -442,7 +442,7 @@
         "component": "Input",
         "name": "dailyDelayFineNumber",
         "type": "text",
-        "value": "",
+        "value": "0.1",
         "label": "Пеня за день просрочки",
         "placeholder": "%",
         "validations": {
@@ -454,7 +454,7 @@
         "component": "Input",
         "name": "dailyDelayFineString",
         "type": "text",
-        "value": "",
+        "value": "одной десятой",
         "label": "Пеня за день просрочки",
         "placeholder": "Прописью",
         "validations": {
@@ -466,7 +466,7 @@
         "component": "Input",
         "name": "maxDelayFineNumber",
         "type": "text",
-        "value": "",
+        "value": "30",
         "label": "Максимальная пеня",
         "placeholder": "%",
         "validations": {
@@ -478,7 +478,7 @@
         "component": "Input",
         "name": "maxDelayFineString",
         "type": "text",
-        "value": "",
+        "value": "тридцати",
         "label": "Максимальная пеня",
         "placeholder": "Прописью",
         "validations": {
@@ -490,7 +490,7 @@
         "component": "Input",
         "name": "deadlineDelayFineNumber",
         "type": "text",
-        "value": "",
+        "value": "5",
         "label": "Срок выплаты пени (дней)",
         "placeholder": "Числом",
         "validations": {
@@ -502,7 +502,7 @@
         "component": "Input",
         "name": "deadlineDelayFineString",
         "type": "text",
-        "value": "",
+        "value": "пяти",
         "label": "Срок выплаты пени (дней)",
         "placeholder": "Прописью",
         "validations": {
@@ -516,7 +516,7 @@
         "component": "Input",
         "name": "forceMajeureDelayNumber",
         "type": "text",
-        "value": "",
+        "value": "30",
         "placeholder": "Число",
         "label": "На сколько дней возможно отложить исполнение",
         "validations": {
@@ -528,7 +528,7 @@
         "component": "Input",
         "name": "forceMajeureDelayString",
         "type": "text",
-        "value": "",
+        "value": "тридцати",
         "placeholder": "Прописью",
         "label": "На сколько дней возможно отложить исполнение",
         "validations": {
@@ -540,7 +540,7 @@
         "component": "Input",
         "name": "forceMajeureNotifyNumber",
         "type": "text",
-        "value": "",
+        "value": "2",
         "placeholder": "Число",
         "label": "Сообщить не позднее (дней)",
         "validations": {
@@ -552,7 +552,7 @@
         "component": "Input",
         "name": "forceMajeureNotifyString",
         "type": "text",
-        "value": "",
+        "value": "двух",
         "placeholder": "Прописью",
         "label": "Сообщить не позднее (дней)",
         "validations": {
@@ -566,7 +566,7 @@
         "component": "Input",
         "name": "disputesTermNumber",
         "type": "text",
-        "value": "",
+        "value": "30",
         "placeholder": "Число",
         "label": "Ответ на претензию предоставляется в срок (дней)",
         "validations": {
@@ -578,7 +578,7 @@
         "component": "Input",
         "name": "disputesTermString",
         "type": "text",
-        "value": "",
+        "value": "тридцать",
         "placeholder": "Прописью",
         "label": "Ответ на претензию предоставляется в срок (дней)",
         "validations": {
@@ -592,7 +592,7 @@
         "component": "Input",
         "name": "unilateralTerminationNumber",
         "type": "text",
-        "value": "",
+        "value": "30",
         "placeholder": "Число",
         "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
         "validations": {
@@ -604,7 +604,7 @@
         "component": "Input",
         "name": "unilateralTerminationString",
         "type": "text",
-        "value": "",
+        "value": "тридцати",
         "placeholder": "Прописью",
         "label": "Отказаться от Договора в одностороннем порядке не позднее (дней)",
         "validations": {
