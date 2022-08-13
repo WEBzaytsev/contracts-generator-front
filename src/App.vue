@@ -150,7 +150,7 @@
                         <span
                             class="px-4 py-2 text-center block rounded-lg border cursor-pointer border-solid border-black/10 shadow-inner font-medium hover:bg-stone-200 transition-all col-start-2 col-end-4"
                             v-if="key === 'order-stage'"
-                            @click="duplicateOrderStageFields"
+                            @click="duplicateFields(subfields)"
                         >
                             Добавить
                         </span>
@@ -197,12 +197,11 @@ export default {
         async submitHandler() {
             const staticFields = this.getAllStaticFields();
 
+            const collections = {};
             const orderStages = [];
             const currentArr = this.fields['order-info']['order-stage'];
-            currentArr.forEach((item, index) => {
-                const newItem = {
-                    orderStageId: index + 1,
-                };
+            currentArr.forEach((item) => {
+                const newItem = {};
                 item.forEach((i, idx) => {
                     defineProperty(
                         newItem,
@@ -213,15 +212,16 @@ export default {
 
                 orderStages.push(newItem);
             });
+            collections['orderStage'] = orderStages;
 
             const objectToSend = {
                 staticFields,
-                orderStages,
+                collections,
             };
 
-            const request = await createDocument(objectToSend);
+            console.log(objectToSend);
 
-            console.log(await request);
+            const request = await createDocument(objectToSend);
 
             if (await request.success) {
                 this.downloadUrl = `/${request['file_name']}`;
@@ -230,28 +230,10 @@ export default {
 
             this.successSubmit = false;
         },
-        duplicateOrderStageFields() {
-            this.fields['order-info']['order-stage'].push([]);
-
-            const fieldsArray = this.fields['order-info']['order-stage'][0];
-
-            for (let item of fieldsArray) {
-                const copiedItem = Object.assign({}, item);
-
-                if (this.fields['order-info']['order-stage'].length > 2) {
-                    copiedItem.name = `${copiedItem.name}${
-                        this.fields['order-info']['order-stage'].length - 1
-                    }`;
-                } else {
-                    copiedItem.name += 1;
-                }
-
-                copiedItem.value = '';
-
-                this.fields['order-info']['order-stage']
-                    .at(-1)
-                    .push(copiedItem);
-            }
+        duplicateFields(currentArr) {
+            currentArr.push([
+                ...currentArr[0].map((c) => Object.assign({}, c)),
+            ]);
         },
         getAllStaticFields() {
             const allValues = {};
