@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dp__input_wrap input {
+    @apply w-full
+    border
+    border-solid
+    border-black/10
+    py-4
+    bg-white/80
+    text-sm
+    block
+    rounded-lg
+    shadow-inner
+    focus:shadow-md
+    transition-all
+    duration-300
+    text-black;
+}
