@@ -239,8 +239,11 @@ export default {
                 error = this.numberValidate(field.value);
             }
 
-            if (!error && this.errors[field.name]) {
-                delete this.errors[field.name];
+            if (!error) {
+                if (Object.keys(this.errors).find((f) => f === field.name)) {
+                    delete this.errors[field.name];
+                    return;
+                }
                 return;
             }
 
@@ -285,6 +288,10 @@ export default {
                 this.formError =
                     'Ошибка. Проверьте правильность заполнения данных';
                 return;
+            }
+
+            if (this.formError) {
+                this.formError = '';
             }
 
             const staticFields = {};
@@ -347,10 +354,7 @@ export default {
             }
 
             if (typeof instance === 'object') {
-                if (
-                    instance.value === undefined ||
-                    instance.name === undefined
-                ) {
+                if (isUndefined(instance.value) || isUndefined(instance.name)) {
                     Object.values(instance).forEach((item) =>
                         this.getStaticValues(item, sourceObject)
                     );
