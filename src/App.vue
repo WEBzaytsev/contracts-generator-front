@@ -17,6 +17,7 @@
                             :label="field.label"
                             :placeholder="field.placeholder || field.label"
                             v-model="field.value"
+                            @blur="saveData"
                         />
                     </div>
                 </form-fields-group>
@@ -43,6 +44,7 @@
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
                                 v-model="field.value"
+                                @blur="saveData"
                             />
                         </div>
                     </form-fields-group>
@@ -69,6 +71,7 @@
                                 :label="field.label"
                                 :placeholder="field.placeholder || field.label"
                                 v-model="field.value"
+                                @blur="saveData"
                             />
                         </div>
                     </form-fields-group>
@@ -92,6 +95,7 @@
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
                             v-model="field.value"
+                            @blur="saveData"
                         />
                     </div>
                 </form-fields-group>
@@ -133,6 +137,7 @@
                                     "
                                     :label="field.label"
                                     v-model="field.value"
+                                    @blur="saveData"
                                 />
                             </template>
                         </template>
@@ -146,6 +151,7 @@
                             :placeholder="field.placeholder || field.label"
                             :label="field.label"
                             v-model="field.value"
+                            @blur="saveData"
                         />
                         <span
                             class="px-4 py-2 text-center block rounded-lg border cursor-pointer border-solid border-black/10 shadow-inner font-medium hover:bg-stone-200 transition-all col-start-2 col-end-4"
@@ -268,6 +274,21 @@ export default {
 
             defineProperty(sourceObject, instance.name, instance.value);
         },
+        saveData() {
+            window.localStorage.setItem(
+                'contract-data',
+                JSON.stringify(this.fields)
+            );
+        },
+    },
+    created() {
+        if (window.localStorage.getItem('contract-data')) {
+            this.fields = JSON.parse(
+                window.localStorage.getItem('contract-data')
+            );
+        }
+
+        console.log(this.fields);
     },
 };
 </script>

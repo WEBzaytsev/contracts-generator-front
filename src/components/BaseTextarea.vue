@@ -6,8 +6,9 @@
             :id="uuid"
             v-bind="$attrs"
             :placeholder="placeholder"
-            :modelValue="modelValue"
+            :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
+            @blur="blur"
         ></textarea>
         <BaseError :error="error" />
     </div>
@@ -38,6 +39,11 @@ export default {
         widthClass: {
             type: String,
             default: 'w-full',
+        },
+    },
+    methods: {
+        blur() {
+            this.$emit('blur');
         },
     },
     setup() {

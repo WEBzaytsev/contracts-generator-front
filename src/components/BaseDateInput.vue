@@ -12,6 +12,7 @@
             v-bind="$attrs"
             :placeholder="placeholder"
             @input="$emit('update:modelValue', $event.target.value)"
+            @blur="blur"
         />
         <BaseError :error="error" />
     </div>
@@ -38,6 +39,11 @@ export default {
         placeholder: {
             type: [String, Number],
             default: '',
+        },
+    },
+    methods: {
+        blur() {
+            this.$emit('blur');
         },
     },
     setup() {
