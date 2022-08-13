@@ -287,8 +287,9 @@ export default {
     },
     created() {
         if (window.localStorage.getItem('contract-data')) {
-            this.fields = JSON.parse(
-                window.localStorage.getItem('contract-data')
+            this.fields = Object.assign(
+                this.fields,
+                JSON.parse(window.localStorage.getItem('contract-data'))
             );
         }
 
