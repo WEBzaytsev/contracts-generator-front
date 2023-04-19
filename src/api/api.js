@@ -1,4 +1,6 @@
-const url = 'https://d.ondev.in/word.php';
+// const url = 'http://contract/api/index.php';
+const url = new URL(window.location.href);
+url.pathname = '/api/index.php';
 
 export const createDocument = async (data) => {
     const formData = new FormData();
@@ -8,7 +10,7 @@ export const createDocument = async (data) => {
     try {
         const request = await fetch(url, {
             method: 'post',
-            mode: 'no-cors',
+            // mode: 'no-cors',
             body: formData,
         });
 
