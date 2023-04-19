@@ -172,6 +172,20 @@
                         </span>
                     </div>
                 </form-fields-group>
+                <!--                <div class="mb-12">
+            <editor
+                api-key="cb4hlcyhyugrpps31s1942gf87i4875wjdmfkon2ux16ndou"
+                output-format="html"
+                v-model="content"
+                selector="textarea"
+                :init="{
+                    plugins:
+                        'lists link image table code help wordcount',
+                    toolbar:
+                        'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | help',
+                }"
+            />
+        </div>-->
 
                 <div class="flex w-full justify-center">
                     <BaseButton
@@ -180,7 +194,7 @@
                         :download="true"
                         text="Скачать"
                     />
-                    <BaseButton text="Отправить" />
+                    <BaseButton text="Отправить" v-if="!downloadUrl" />
                 </div>
                 <p
                     class="text-center text-red-600 py-2 mx-auto"
@@ -195,6 +209,7 @@
 
 <script>
 import FormFieldsGroup from '@/components/FormFieldsGroup';
+// import Editor from '@tinymce/tinymce-vue';
 import { defineProperty } from '@/utils/defineProperty';
 import { createDocument } from '@/api/api';
 import isUndefined from 'lodash/isUndefined';
@@ -202,10 +217,11 @@ import isString from 'lodash/isString';
 
 export default {
     name: 'App',
-    components: { FormFieldsGroup },
+    components: { FormFieldsGroup /*, editor: Editor*/ },
     data() {
         return {
             fields: require('@/settings-jsons/contract.json'),
+            // content: '',
             downloadUrl: '',
             formError: '',
             errors: {},
@@ -220,10 +236,12 @@ export default {
 
             this.validate(field);
         },
+
         blurHandler(field) {
             this.saveData();
             this.validate(field);
         },
+
         validate(field) {
             let error;
 
@@ -249,15 +267,19 @@ export default {
 
             this.errors[field.name] = error;
         },
+
         requiredValidate(value) {
             return value.trim() === '' ? '*Обязательно' : false;
         },
+
         stringValidate(value) {
             return !isString(value) ? 'Ожидается строка' : false;
         },
+
         numberValidate(value) {
             return isNaN(Number(value)) ? 'Ожидается число' : false;
         },
+
         checkValidates(instance) {
             if (Array.isArray(instance)) {
                 //TODO: fix it work around if possible
@@ -281,7 +303,10 @@ export default {
 
             this.validate(instance);
         },
-        async submitHandler() {
+
+        async submitHandler(e) {
+            e.preventDefault();
+
             this.checkValidates(this.fields);
 
             if (Object.keys(this.errors).length) {
@@ -317,19 +342,19 @@ export default {
             const objectToSend = {
                 staticFields,
                 collections,
+                contractTasks: this.content,
             };
-
-            console.log(objectToSend);
 
             const request = await createDocument(objectToSend);
 
             if (await request.success) {
-                this.downloadUrl = `/${request['file_name']}`;
+                this.downloadUrl = `http://contract/${request['file_name']}`;
                 return;
             }
 
             this.formError = 'Ошибка. Попробуйте позже';
         },
+
         duplicateFields(currentArr) {
             currentArr.push([
                 ...currentArr[0].map((c) => {
@@ -339,6 +364,7 @@ export default {
                 }),
             ]);
         },
+
         getStaticValues(instance, sourceObject) {
             if (Array.isArray(instance)) {
                 //TODO: fix it work around if possible
@@ -364,6 +390,7 @@ export default {
 
             defineProperty(sourceObject, instance.name, instance.value);
         },
+
         saveData() {
             window.localStorage.setItem(
                 'contract-data',
@@ -371,6 +398,7 @@ export default {
             );
         },
     },
+
     created() {
         if (window.localStorage.getItem('contract-data')) {
             this.fields = Object.assign(
