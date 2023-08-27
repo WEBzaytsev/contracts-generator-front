@@ -10,7 +10,6 @@ export const createDocument = async (data) => {
     try {
         const request = await fetch(url, {
             method: 'post',
-            // mode: 'no-cors',
             body: formData,
         });
 
