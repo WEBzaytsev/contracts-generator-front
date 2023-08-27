@@ -2,7 +2,7 @@
     <div
         class="px-4 py-2 rounded-lg shadow-lg border-black/10 border border-solid font-bold transition-all duration-300 hover:bg-stone-200 cursor-pointer mr-4 last:mr-0"
     >
-        <a v-if="url" :href="url" :download="download">{{ text }}</a>
+        <a v-if="url" :href="url" :download="fileName">{{ text }}</a>
         <button v-else>
             {{ text }}
         </button>
@@ -21,9 +21,11 @@ export default {
             type: String,
             default: '',
         },
-        download: {
-            type: Boolean,
-            default: false,
+    },
+    computed: {
+        fileName() {
+            const urlParts = this.url.split('/');
+            return urlParts[urlParts.length - 1];
         },
     },
 };

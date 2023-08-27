@@ -176,7 +176,6 @@
                     <BaseButton
                         v-if="downloadUrl"
                         :url="downloadUrl"
-                        :download="true"
                         text="Скачать"
                     />
                     <BaseButton text="Отправить" v-if="!downloadUrl" />
