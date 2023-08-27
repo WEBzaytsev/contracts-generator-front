@@ -172,21 +172,6 @@
                         </span>
                     </div>
                 </form-fields-group>
-                <!--                <div class="mb-12">
-            <editor
-                api-key="cb4hlcyhyugrpps31s1942gf87i4875wjdmfkon2ux16ndou"
-                output-format="html"
-                v-model="content"
-                selector="textarea"
-                :init="{
-                    plugins:
-                        'lists link image table code help wordcount',
-                    toolbar:
-                        'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | help',
-                }"
-            />
-        </div>-->
-
                 <div class="flex w-full justify-center">
                     <BaseButton
                         v-if="downloadUrl"
