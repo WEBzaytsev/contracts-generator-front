@@ -333,7 +333,8 @@ export default {
             const request = await createDocument(objectToSend);
 
             if (await request.success) {
-                this.downloadUrl = `http://contract/${request['file_name']}`;
+                const origin = new URL(window.location.href).origin;
+                this.downloadUrl = `${origin}/${request['file_name']}`;
                 return;
             }
 
